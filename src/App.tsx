@@ -43,7 +43,10 @@ function App() {
   const drawWithHtml2Canvas = async () => {
     if (ticketRef.current) {
       const canvas = await convertWithHtml2Image(ticketRef.current);
-      containerRef.current?.appendChild(canvas);
+      const image = new Image();
+      image.width = 255;
+      image.src = canvas.toDataURL("image/jpeg");
+      containerRef.current?.appendChild(image);
     }
   };
 
