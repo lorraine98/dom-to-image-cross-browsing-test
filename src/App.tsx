@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
-import Ticket from "./Ticket";
+import { useRef } from "react";
+import { convertWithHtml2Image } from "./html2image";
+import { convertWithHtmlToImage } from "./htmlToImage";
+import { Ticket } from "./Ticket";
 
 const Container = styled.section`
   display: flex;
@@ -21,13 +24,48 @@ const Button = styled.button`
 `;
 
 function App() {
-  const drawWithHtml2Canvas = async () => {};
-  const downloadWithHtml2Canvas = async () => {};
-  const drawWithHtmlToImage = async () => {};
-  const downloadWithHtmlToImage = async () => {};
+  const ticketRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLSelectElement>(null);
+
+  const drawWithHtml2Canvas = async () => {
+    if (ticketRef.current) {
+      const canvas = await convertWithHtml2Image(ticketRef.current);
+      containerRef.current?.appendChild(canvas);
+    }
+  };
+
+  const downloadWithHtml2Canvas = async () => {
+    if (ticketRef.current) {
+      const canvas = await convertWithHtml2Image(ticketRef.current);
+      const downloadLink = document.createElement("a");
+      downloadLink.href = canvas.toDataURL("image/jpeg");
+      downloadLink.download = "221010 티켓";
+      downloadLink.click();
+    }
+  };
+
+  const drawWithHtmlToImage = async () => {
+    if (ticketRef.current) {
+      const image = new Image();
+      image.width = 255;
+      const dataUrl = await convertWithHtmlToImage(ticketRef.current);
+      image.src = dataUrl;
+      containerRef.current?.appendChild(image);
+    }
+  };
+  const downloadWithHtmlToImage = async () => {
+    if (ticketRef.current) {
+      const dataUrl = await convertWithHtmlToImage(ticketRef.current);
+      const downloadLink = document.createElement("a");
+      downloadLink.href = dataUrl;
+      downloadLink.download = "221010 티켓";
+      downloadLink.click();
+    }
+  };
+
   return (
-    <Container>
-      <Ticket />
+    <Container ref={containerRef}>
+      <Ticket ref={ticketRef} />
       <p>html2Canvas</p>
       <div>
         <Button onClick={drawWithHtml2Canvas} style={{ marginRight: "12px" }}>
