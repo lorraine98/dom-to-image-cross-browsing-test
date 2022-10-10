@@ -1,34 +1,40 @@
-import {
-  Button,
-  Flex,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-  useDisclosure,
-} from "@chakra-ui/react";
+import styled from "@emotion/styled";
 import Ticket from "./Ticket";
 
+const Container = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Button = styled.button`
+  background: none;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  :hover {
+    background-color: gray;
+    color: white;
+  }
+`;
+
 function App() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
-    <Flex justifyContent="center" alignItems="center" flexDir="column" h="100%">
+    <Container>
       <Ticket />
-
-      <Button onClick={onOpen}>Open Modal</Button>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>heelo</ModalBody>
-        </ModalContent>
-      </Modal>
-    </Flex>
+      <p>html2Canvas</p>
+      <div>
+        <Button style={{ marginRight: "12px" }}>이미지로 그리기</Button>
+        <Button>다운로드</Button>
+      </div>
+      <p>htmlToImage</p>
+      <div>
+        <Button style={{ marginRight: "12px" }}>이미지로 그리기</Button>
+        <Button>다운로드</Button>
+      </div>
+    </Container>
   );
 }
 
