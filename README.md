@@ -18,9 +18,9 @@ yarn start
 | <img width="300" alt="image" src="https://user-images.githubusercontent.com/61550839/194855663-5a65ebdc-5b34-4b3c-8d80-b13d18f2ec31.png"> | <img width="290" alt="image" src="https://user-images.githubusercontent.com/61550839/194855722-8944b42c-2e67-4efa-ad65-70a50cd76d30.png"> | <img width="300" alt="image" src="https://user-images.githubusercontent.com/61550839/194855900-cf0cae31-225b-4756-a438-72961cd858e4.jpeg"> |
 
 
-chrome : 둘 다 문제 없음.
-safari : html2Canvas 문제 없음. 반면, htmlToImage는 지원하는 메서드를 두 번 실행해야 제대로 이미지가 그려짐.
-ios : html2Canvas 문제 없음. 반면, htmlToImage는 이미지가 그려지지 않음.
+- chrome : 둘 다 문제 없음.
+- safari : html2Canvas 문제 없음. 반면, htmlToImage는 지원하는 메서드를 두 번 실행해야 제대로 이미지가 그려짐.
+- ios : html2Canvas 문제 없음. 반면, htmlToImage는 이미지가 그려지지 않음.
 
 ### 정리
 
