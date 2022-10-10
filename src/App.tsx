@@ -25,7 +25,7 @@ const Button = styled.button`
 
 function App() {
   const ticketRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLSelectElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const { userAgent } = navigator;
 
   const checkUserAgent = () => {
