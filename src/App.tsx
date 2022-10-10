@@ -26,6 +26,19 @@ const Button = styled.button`
 function App() {
   const ticketRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLSelectElement>(null);
+  const { userAgent } = navigator;
+
+  const checkUserAgent = () => {
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+      return "IOS";
+    } else if (/Chrome/.test(userAgent)) {
+      return "CHROME";
+    } else if (/Safari/.test(userAgent)) {
+      return "SAFARI";
+    } else {
+      return "OTHER";
+    }
+  };
 
   const drawWithHtml2Canvas = async () => {
     if (ticketRef.current) {
@@ -38,8 +51,10 @@ function App() {
     if (ticketRef.current) {
       const canvas = await convertWithHtml2Image(ticketRef.current);
       const downloadLink = document.createElement("a");
+      const userAgent = checkUserAgent();
+
       downloadLink.href = canvas.toDataURL("image/jpeg");
-      downloadLink.download = "221010 티켓";
+      downloadLink.download = `html2Canvas ${userAgent}`;
       downloadLink.click();
     }
   };
@@ -53,12 +68,15 @@ function App() {
       containerRef.current?.appendChild(image);
     }
   };
+
   const downloadWithHtmlToImage = async () => {
     if (ticketRef.current) {
       const dataUrl = await convertWithHtmlToImage(ticketRef.current);
       const downloadLink = document.createElement("a");
+      const userAgent = checkUserAgent();
+
       downloadLink.href = dataUrl;
-      downloadLink.download = "221010 티켓";
+      downloadLink.download = `htmlToImage ${userAgent}`;
       downloadLink.click();
     }
   };

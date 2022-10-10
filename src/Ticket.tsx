@@ -8,6 +8,7 @@ export const Ticket = forwardRef<HTMLDivElement>((props, ref) => {
         <div className="bandname -bold">Ghost Mice</div>
         <div className="tourname">Home Tour</div>
         <img
+          style={{ width: "255px" }}
           src="https://firebasestorage.googleapis.com/v0/b/good-fight-65d3d.appspot.com/o/homeBannerImage%2FKakaoTalk_Photo_2022-06-20-22-13-48.jpeg1656428570615?alt=media&token=088ad608-483b-433f-a8a3-84e7ef3c6c2d"
           alt=""
         />
