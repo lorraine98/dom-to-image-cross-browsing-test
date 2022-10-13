@@ -13,7 +13,7 @@ yarn start
 
 ### 결과
 
-| chrome | safari | ios |
+| chrome | mac safari | ios |
 | :---:        |     :---:      |          :---: |
 | <img width="300" alt="image" src="https://user-images.githubusercontent.com/61550839/194855663-5a65ebdc-5b34-4b3c-8d80-b13d18f2ec31.png"> | <img width="290" alt="image" src="https://user-images.githubusercontent.com/61550839/194855722-8944b42c-2e67-4efa-ad65-70a50cd76d30.png"> | <img width="300" alt="image" src="https://user-images.githubusercontent.com/61550839/194855900-cf0cae31-225b-4756-a438-72961cd858e4.jpeg"> |
 
